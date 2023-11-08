@@ -1,0 +1,25 @@
+{
+  "name": "rpbot",
+  "version": "1.0.0",
+  "description": "Discord bot for roleplaying in such things like wargames, made using discord.js and node",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "console.log(\"test\");"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lisiastek/rpbot.git"
+  },
+  "keywords": [
+    "idk"
+  ],
+  "author": "Natalia łata",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Lisiastek/rpbot/issues"
+  },
+  "homepage": "https://github.com/Lisiastek/rpbot#readme",
+  "dependencies": {
+    "discord.js": "^14.13.0"
+  }
+}
