@@ -1,4 +1,5 @@
 const {Client, IntentsBitField} = require("discord.js");
+const TokenFile = require("../token.json");
 
 const client = new Client({
     intents: [
@@ -58,5 +59,5 @@ client.on("messageCreate", (m) => {
 });
 
 client.login(
-    "NDgyNTIzOTYwNTg0Njk5OTA0.Gv7kx4.IKil-ugUDWrVGA-TpZ-Rr5SLf3gtHynTRn8RAE"
+    TokenFile.token
 );
