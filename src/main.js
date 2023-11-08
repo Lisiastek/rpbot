@@ -1,6 +1,7 @@
 const {Client, IntentsBitField} = require("discord.js");
 const TokenFile = require("../token.json");
 
+
 const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
@@ -32,8 +33,9 @@ client.on("messageCreate", (m) => {
         }
         case prefix + "work":{
             if(!(m.author.id in money)) createMoney(m.author.id);
-            m.reply("dodano 200");
-            money[m.author.id] += 200;
+            const kwota = Math.round(Math.random() * 1000 + 100);
+            m.reply(`Zarobiłeś ${kwota}`);
+            money[m.author.id] += kwota;
             break;
         }
         case prefix + "ranking":{
