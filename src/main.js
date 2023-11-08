@@ -21,7 +21,6 @@ client.on('ready', (c) => {
 
 function createMoney(author){
     money[author] = 0;
-    console.log(money);
 }
 
 client.on("messageCreate", (m) => {
@@ -38,9 +37,22 @@ client.on("messageCreate", (m) => {
             money[m.author.id] += kwota;
             break;
         }
+        case m.content.startsWith(prefix+"setmoney") ? m.content : "gowno":{
+            const args = m.content.substring((prefix+"setmoney").length).split(" ");
+            console.log(args);
+            if(args.length != 3){
+                m.reply(`poprawny format: ${prefix}setmoney <uzytkownik> <ilosc>`);
+                break;
+            }
+            args[1] = args[1].substring(2, args[1].length-1);
+            if(!(args[1] in money)) createMoney(args[1]);
+            money[args[1]] = Number(args[2]);
+            m.reply("dodano");
+            break;
+        }
         case prefix + "ranking":{
             let _temp = "--------\n";
-            const moneyList = Object.entries(money).sort((x,y) => {x[1] > y[1]});
+            const moneyList = Object.entries(money).sort((x,y) => {return y[1] - x[1]});
             let it = 1;
             for([author, moneyo] of moneyList){
                 _temp += `${it}. <@${author}> -> ${moneyo} \n`;
